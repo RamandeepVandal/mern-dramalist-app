@@ -7,19 +7,26 @@ export const Header = () => {
   // navigation
   const navigate = useNavigate();
   const handleClick = () => navigate("/");
-  const handleClickDrama = () => navigate("/drama")
+  const handleClickDrama = () => navigate("/drama");
   const handelClickAddDramas = () => navigate("/add");
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+    <Navbar collapseOnSelect expand="lg" variant="light" bg="light" fixed="top">
       <Container>
-        <Navbar.Brand className="nav-brand" onClick={handleClick}>
+        <Navbar.Brand className="nav-brand fs-4 nav-text" onClick={handleClick}>
           DramaList
         </Navbar.Brand>
-        <Nav className="ms-auto">
-          <Nav.Link className="me-3" onClick={handleClickDrama}>Dramas</Nav.Link>
-          <Nav.Link className="me-3" onClick={handelClickAddDramas}>Add Dramas</Nav.Link>
-        </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickDrama} >
+              Dramas
+            </Nav.Link>
+            <Nav.Link className="me-5 fs-5 nav-text" onClick={handelClickAddDramas}>
+              Add Dramas
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
