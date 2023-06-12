@@ -2,11 +2,108 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+body {
+  padding-top: 70px;
+}
+
+/* NAVBAR */
+
 .nav-brand {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-text {
+  color: #486fff;
+}
+
+.nav-text:hover {
+  color: #86ffd1;
+}
+
+/* HERO SECTION */
+
+.hero {
+  height: 90vh;
+}
+
+.hero-text {
+  background: #486fff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-explore {
+  background-color: #86ffd1;
+
+  transition: 0.5s all ease;
+}
+
+.btn-explore:hover {
+  background-color: #11fea4;
+}
+
+/* ABOUT SECTION */
+.about {
+  height: 100vh;
+}
+
+.about h1 {
+  color: #486fff;
+}
+
+.services-container {
+  border: none;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+}
+
+/* DRAMAS PAGE */
+.genre-tags {
+  background: #486fff;
+  color: white;
+}
+
+.icon-img {
+  transition: 0.25s ease all;
   cursor: pointer;
 }
 
-.genre-tags {
-  border-radius: 12px;
-  background: linear-gradient(170deg, #fafafa, #d3d3d3);
+.icon-img:hover {
+  fill: #86ffd1;
+}
+
+.drama-container {
+  border: none;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+/* ADD,EDIT DRAMA PAGE */
+.add-edit-drama h1 {
+  color:#486fff;
+  font-weight: bold;
+}
+
+/* CONTACT SECTION */
+.contact {
+  background-color: #486fff; 
+}
+
+/* FOOTER SECTION */
+.footer {
+  color: #486fff; 
+}
+
+.footer h1, p{
+  cursor: pointer;
+}
+
+.footer h1:hover, p:hover {
+  color: #86ffd1;
 }
