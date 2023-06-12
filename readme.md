@@ -7,10 +7,12 @@ This is a full-stack project that allows users to manage and keep track of the d
 ### To get started, clone this repository to your local machine. You will need to have Node.js and MongoDB installed on your machine. Follow these steps to run the project:
 
     Open a terminal window and navigate to the root directory of the project.
-    Run npm install to install the dependencies for both the front-end and back-end.
-    Navigate to the client directory and run npm install to install the front-end dependencies.
-    Navigate back to the root directory and run npm run dev to start the development server for both the front-end and back-end.
-    Open your browser and navigate to http://localhost:3000. The Drama List app will be displayed.
+    Navigate to the client and server directory and run npm install to install the front-end and back-end dependencies.
+    Navigate back to the client directory and run npm run dev to start the development server for the front-end.
+    Open a second terminal and navigate to the server directory and run npm start to start the development server for the back-end.
+    You will need to connect the application to your own database in the config folder (server -> config -> db.js).
+    Once in the "db.js" file, replace "process.env.DRAMA_MONGODB" with the link to your MongoDB database.
+    Open your browser and navigate to the link provided in the client terminal. The Drama List app will be displayed.
 
 ## Usage
 
@@ -42,5 +44,7 @@ To delete a drama, users should click the "Delete" button next to the drama they
 ## Credits
 
 All images used for this project are from "Free illustrations" and "Reshot"
+
 Link to "Free illustrations": https://freeillustrations.xyz/illustration/website-illustrations/
+
 Link to "Reshot": https://www.reshot.com/free-vector-illustrations/website/
