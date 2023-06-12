@@ -33,7 +33,7 @@ export const EditDramas = () => {
     <div>
       <Header />
 
-      <section className="container d-flex justify-content-center align-items-center flex-column m-3 p-5">
+      <section className="container d-flex justify-content-center align-items-center flex-column m-3 p-5 add-edit-drama">
         <h1>Edit Drama</h1>
         <form className="card p-5 mt-2" onSubmit={onSubmit}>
           <div className="form-floating mb-3">
@@ -58,7 +58,7 @@ export const EditDramas = () => {
             ></textarea>
             <label htmlFor="genre">Genres</label>
           </div>
-          <button type="submit" className="btn btn-dark btn-block">
+          <button type="submit" className="btn btn-explore btn-block">
             Edit
           </button>
         </form>
