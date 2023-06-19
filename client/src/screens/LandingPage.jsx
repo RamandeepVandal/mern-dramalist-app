@@ -19,8 +19,8 @@ export const LandingPage = () => {
       {/* HERO SECTION */}
       <section className="hero">
         <Header />
-        <div className="d-flex justify-content-between align-items-start m-5 p-5">
-          <div className="text-start mt-5">
+        <div className="d-flex justify-content-between align-items-center text-center m-5 p-5">
+          <div className="text-center mt-5">
             <h1
               className="display-1"
               style={{ color: "#486fff", fontWeight: "bold" }}
@@ -54,47 +54,60 @@ export const LandingPage = () => {
           </h1>
 
           <div className="d-flex justify-content-between align-items-center">
-            <div className="card container m-3 p-4 text-center services-container">
-              <img
-                className="card-img-top"
-                src={supportTeam}
-                alt="add illustration"
-              />
-              <h1>Add Dramas</h1>
-              <p>Create a collection of your favorite dramas.</p>
-              <button className="btn btn-explore" onClick={handleClickDramaAdd}>
-                Add Dramas
-              </button>
-            </div>
-            <div className="card container m-3 p-4 text-center services-container">
-              <img
-                className="card-img-top"
-                src={taskImg}
-                alt="add illustration"
-              />
-              <h1>Save Dramas</h1>
-              <p>Save your watched dramas to keep track.</p>
-              <button
-                className=" btn btn-explore"
-                onClick={handleClickDramaList}
-              >
-                View Dramas
-              </button>
-            </div>
-            <div className="card container m-3 p-4 text-center services-container">
-              <img
-                className="card-img-top"
-                src={remoteTeam}
-                alt="add illustration"
-              />
-              <h1>Edit Dramas</h1>
-              <p>Edit the genres and ratings of your dramas.</p>
-              <button
-                className="btn btn-explore"
-                onClick={handleClickDramaList}
-              >
-                Edit Dramas
-              </button>
+            <div className="container">
+              <div className="row">
+                <div className="col-12 col-md-6 col-lg-4">
+                  <div className="card container m-3 p-4 text-center services-container">
+                    <img
+                      className="card-img-top"
+                      src={supportTeam}
+                      alt="add illustration"
+                    />
+                    <h1>Add Dramas</h1>
+                    <p>Create a collection of your favorite dramas.</p>
+                    <button
+                      className="btn btn-explore"
+                      onClick={handleClickDramaAdd}
+                    >
+                      Add Dramas
+                    </button>
+                  </div>
+                </div>
+                <div className="col-12 col-md-6 col-lg-4">
+                  <div className="card container m-3 p-4 text-center services-container">
+                    <img
+                      className="card-img-top"
+                      src={taskImg}
+                      alt="add illustration"
+                    />
+                    <h1>Save Dramas</h1>
+                    <p>Save your watched dramas to keep track.</p>
+                    <button
+                      className=" btn btn-explore"
+                      onClick={handleClickDramaList}
+                    >
+                      View Dramas
+                    </button>
+                  </div>
+                </div>
+                <div className="col-12 col-md-6 col-lg-4">
+                  <div className="card container m-3 p-4 text-center services-container">
+                    <img
+                      className="card-img-top"
+                      src={remoteTeam}
+                      alt="add illustration"
+                    />
+                    <h1>Edit Dramas</h1>
+                    <p>Edit the genres and ratings of your dramas.</p>
+                    <button
+                      className="btn btn-explore"
+                      onClick={handleClickDramaList}
+                    >
+                      Edit Dramas
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -116,7 +129,7 @@ export const LandingPage = () => {
 
       {/* FOOTER SECTION */}
       <section className="footer container">
-        <div className="container d-flex justify-content-between align-items-center p-5 m-3">
+        <div className="container d-flex justify-content-between align-items-center p-5 m-3 footer-container">
           <h1>DramaList</h1>
 
           <div className="container d-flex justify-content-evenly mt-2">
