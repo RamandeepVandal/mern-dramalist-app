@@ -46,7 +46,7 @@ body {
 
 /* ABOUT SECTION */
 .about {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .about h1 {
@@ -106,4 +106,10 @@ body {
 
 .footer h1:hover, p:hover {
   color: #86ffd1;
+}
+
+@media only screen and (max-width: 992px) {
+  .footer-container {
+    flex-direction: column;
+  }
 }
