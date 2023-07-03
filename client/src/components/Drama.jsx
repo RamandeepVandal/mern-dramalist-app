@@ -23,7 +23,7 @@ export const Drama = ({ drama, filterDrama }) => {
     <>
       <div className="col-12 col-sm-6 col-md-10 col-lg-12">
         <section className="d-flex justify-content-center align-items-center flex-column">
-          <div className="card container m-2 p-2 drama-container">
+          <div className="card container m-4 p-4 drama-container">
             <div className="d-flex align-items-center mb-2 container">
               <h1>{drama?.name}</h1>
               <div className="ms-auto">
@@ -63,7 +63,7 @@ export const Drama = ({ drama, filterDrama }) => {
                   {drama?.genre?.map((val) => {
                     return (
                       <div className="col-lg-auto col-md-4 col-12">
-                        <p className="me-2 genre-tags p-2 card text-center">
+                        <p className="me-1 genre-tags p-3 card text-center">
                           {val}
                         </p>
                       </div>
