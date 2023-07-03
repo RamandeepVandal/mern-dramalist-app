@@ -1,61 +1,73 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --white: #fffffe;
+  --yellow: #ffd803;
+  --light-yellow:#ffe242;
+  --header-color: #272343;
+  --p-color: #2d334a;
+  --btn-text: #272343;
+  --skyblue: #e3f6f5;
 }
 
 body {
-  padding-top: 70px;
+  background-color: #fffffe;
+}
+
+h1 {
+  color: var(--header-color);
+  font-weight: bold;
+}
+
+p {
+  color: var(--p-color);
 }
 
 /* NAVBAR */
-
 .nav-brand {
   cursor: pointer;
   font-weight: bold;
 }
 
 .nav-text {
-  color: #486fff;
+  color: var(--header-color);
 }
 
 .nav-text:hover {
-  color: #86ffd1;
+  color: var(--yellow);
 }
 
 /* HERO SECTION */
-
 .hero {
-  height: 90vh;
-}
-
-.hero-text {
-  background: #486fff;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  min-height: 90vh;
 }
 
 .btn-explore {
-  background-color: #86ffd1;
-
+  background-color: var(--yellow);
+  color: var(--btn-text);
   transition: 0.5s all ease;
 }
 
 .btn-explore:hover {
-  background-color: #11fea4;
+  background-color: var(--light-yellow);
+  box-shadow: 0px 2px 4px var(--light-yellow);
 }
 
 /* ABOUT SECTION */
 .about {
   min-height: 100vh;
-}
-
-.about h1 {
-  color: #486fff;
+  background-color: var(--skyblue);
 }
 
 .services-container {
   border: none;
-  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 4px var(--white);
+}
+
+@media only screen and (max-width: 992px) {
+  .services-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 .card-img-top {
@@ -65,47 +77,54 @@ body {
 }
 
 /* DRAMAS PAGE */
+.drama-container {
+  background-color: var(--skyblue);
+  border: none;
+  box-shadow: 0px 3px 15px var(--skyblue);
+}
+
+.drama-container h1 {
+  color: var(--header-color);
+  font-weight: 600;
+}
+
 .genre-tags {
-  background: #486fff;
-  color: white;
+  background: var(--white);
+  color: var(--header-color);
+  font-weight: 600;
+  border: none;
 }
 
 .icon-img {
   transition: 0.25s ease all;
   cursor: pointer;
+  fill: var(--header-color);
 }
 
 .icon-img:hover {
-  fill: #86ffd1;
-}
-
-.drama-container {
-  border: none;
-  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  fill: var(--yellow);
 }
 
 /* ADD,EDIT DRAMA PAGE */
-.add-edit-drama h1 {
-  color:#486fff;
-  font-weight: bold;
+.form-card {
+  border: none;
+  background-color: var(--skyblue);
+  box-shadow: 0px 3px 15px var(--skyblue);
 }
 
 /* CONTACT SECTION */
 .contact {
-  background-color: #486fff; 
+  background-color: var(--skyblue); 
 }
 
 /* FOOTER SECTION */
-.footer {
-  color: #486fff; 
+.footer a {
+  text-decoration: none;
+  color: var(--header-color);
 }
 
-.footer h1, p{
-  cursor: pointer;
-}
-
-.footer h1:hover, p:hover {
-  color: #86ffd1;
+.footer a:hover {
+  color: var(--yellow);
 }
 
 @media only screen and (max-width: 992px) {
