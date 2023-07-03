@@ -15,10 +15,13 @@ export const EditDramas = () => {
     e.preventDefault();
 
     try {
-      await Axios.put(`http://localhost:5000/dramas/${location?.state?.data?._id}`, {
-        name: dramaName,
-        genre: genre,
-      });
+      await Axios.put(
+        `http://localhost:5000/dramas/${location?.state?.data?._id}`,
+        {
+          name: dramaName,
+          genre: genre,
+        }
+      );
       alert("Success!");
     } catch (error) {
       console.log(error);
@@ -33,35 +36,41 @@ export const EditDramas = () => {
     <div>
       <Header />
 
-      <section className="container d-flex justify-content-center align-items-center flex-column m-3 p-5 add-edit-drama">
+      <section className="container d-flex justify-content-center align-items-center flex-column p-5 add-edit-drama">
         <h1>Edit Drama</h1>
-        <form className="card p-5 mt-2" onSubmit={onSubmit}>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              value={dramaName}
-              onChange={(e) => setDramaName(e.target.value)}
-            />
-            <label htmlFor="name">Name</label>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+              <form className="card form-card p-5 mt-2" onSubmit={onSubmit}>
+                <div className="form-floating mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    value={dramaName}
+                    onChange={(e) => setDramaName(e.target.value)}
+                  />
+                  <label htmlFor="name">Name</label>
+                </div>
+                <div className="form-floating mb-3">
+                  <textarea
+                    name="genre"
+                    id="genre"
+                    className="form-control"
+                    cols="50"
+                    rows="10"
+                    value={genre}
+                    onChange={(e) => setGenre(e.target.value.split(","))}
+                  ></textarea>
+                  <label htmlFor="genre">Genres</label>
+                </div>
+                <button type="submit" className="btn btn-explore btn-block">
+                  Edit
+                </button>
+              </form>
+            </div>
           </div>
-          <div className="form-floating mb-3">
-            <textarea
-              name="genre"
-              id="genre"
-              className="form-control"
-              cols="50"
-              rows="10"
-              value={genre}
-              onChange={(e) => setGenre(e.target.value.split(","))}
-            ></textarea>
-            <label htmlFor="genre">Genres</label>
-          </div>
-          <button type="submit" className="btn btn-explore btn-block">
-            Edit
-          </button>
-        </form>
+        </div>
       </section>
     </div>
   );
