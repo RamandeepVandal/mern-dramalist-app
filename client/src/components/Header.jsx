@@ -11,7 +11,7 @@ export const Header = () => {
   const handelClickAddDramas = () => navigate("/add");
 
   return (
-    <Navbar collapseOnSelect expand="lg" variant="light" bg="light" fixed="top">
+    <Navbar collapseOnSelect expand="lg" variant="light">
       <Container>
         <Navbar.Brand className="nav-brand fs-4 nav-text" onClick={handleClick}>
           DramaList
