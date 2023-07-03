@@ -136,7 +136,7 @@ export const LandingPage = () => {
             <a href='#' className="fs-4">Blog</a>
           </div>
 
-          <div className="d-flex align-items-center">
+          <div className="d-flex justify-content-center mt-2 align-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
