@@ -19,17 +19,12 @@ export const LandingPage = () => {
       {/* HERO SECTION */}
       <section className="hero">
         <Header />
-        <div className="d-flex justify-content-between align-items-center text-center m-5 p-5">
+        <div className="d-flex justify-content-between align-items-center text-center m-5 mt-1 p-5">
           <div className="text-center mt-5">
-            <h1
-              className="display-1"
-              style={{ color: "#486fff", fontWeight: "bold" }}
-            >
-              DramaList
-            </h1>
-            <h1 className="fs-2 ">
+            <h1 className="fs-1">DramaList</h1>
+            <p className="fs-3">
               Your personal drama library, Entertainment for everyone.
-            </h1>
+            </p>
             <button
               className="btn btn-lg ps-5 pe-5 mt-4 btn-explore"
               onClick={handleClickDramaList}
@@ -48,16 +43,16 @@ export const LandingPage = () => {
 
       {/* SERVICES/ABOUT SECTION */}
       <section className="about">
-        <div className="d-flex flex-column justify-content-center">
+        <div className="d-flex flex-column justify-content-center pt-5">
           <h1 className="text-center mb-2" style={{ fontWeight: "bold" }}>
             Our Services
           </h1>
 
-          <div className="d-flex justify-content-between align-items-center">
+          <div className="d-flex justify-content-between align-items-center p-5">
             <div className="container">
               <div className="row">
-                <div className="col-12 col-md-6 col-lg-4">
-                  <div className="card container m-3 p-4 text-center services-container">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-4">
+                  <div className="card container p-5 text-center services-container">
                     <img
                       className="card-img-top"
                       src={supportTeam}
@@ -73,8 +68,8 @@ export const LandingPage = () => {
                     </button>
                   </div>
                 </div>
-                <div className="col-12 col-md-6 col-lg-4">
-                  <div className="card container m-3 p-4 text-center services-container">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-4">
+                  <div className="card container p-5 text-center services-container">
                     <img
                       className="card-img-top"
                       src={taskImg}
@@ -90,8 +85,8 @@ export const LandingPage = () => {
                     </button>
                   </div>
                 </div>
-                <div className="col-12 col-md-6 col-lg-4">
-                  <div className="card container m-3 p-4 text-center services-container">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-4">
+                  <div className="card container p-5 text-center services-container">
                     <img
                       className="card-img-top"
                       src={remoteTeam}
@@ -116,29 +111,32 @@ export const LandingPage = () => {
       {/* NEWSLETTER/CONTACT SECTION */}
       <section className="contact">
         <div className="container">
-          <div className="d-flex justify-content-center align-items-center p-5">
+          <div className="justify-content-center align-items-center p-5">
+            <h1 className="text-center">Get the latest</h1>
+            <div className="d-flex m-5">
             <input
-              className="form-control w-50"
+              className="form-control p-3"
               type="text"
               placeholder="Subscribe to our newsletter"
             />
             <button className="btn btn-explore">Subscribe</button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FOOTER SECTION */}
       <section className="footer container">
-        <div className="container d-flex justify-content-between align-items-center p-5 m-3 footer-container">
-          <h1>DramaList</h1>
+        <div className="container d-flex justify-content-between align-items-center p-5 footer-container">
+          <a href="#" className="fs-2" >DramaList</a>
 
-          <div className="container d-flex justify-content-evenly mt-2">
-            <p className="fs-4">Contact</p>
-            <p className="fs-4">Privacy Policy</p>
-            <p className="fs-4">Blog</p>
+          <div className="container d-flex justify-content-evenly">
+            <a href='#' className="fs-4">Contact</a>
+            <a href='#' className="fs-4">Privacy Policy</a>
+            <a href='#' className="fs-4">Blog</a>
           </div>
 
-          <div className="d-flex">
+          <div className="d-flex align-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
