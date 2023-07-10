@@ -131,4 +131,25 @@ p {
   .footer-container {
     flex-direction: column;
   }
+  .sub-form {
+    flex-direction: column;
+  }
+  .footer-card-size {
+    flex-direction: column;
+    margin-top: 5px;
+  }
+
+  .footer-card-size svg {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .footer-link {
+    margin-right: 2rem;
+  }
+
+  .footer-card-size svg {
+    margin-top: 25px;
+  }
 }
