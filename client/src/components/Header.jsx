@@ -9,6 +9,7 @@ export const Header = () => {
   const handleClick = () => navigate("/");
   const handleClickDrama = () => navigate("/drama");
   const handelClickAddDramas = () => navigate("/add");
+  const handleClickFindDramas = () => navigate("/find")
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="light">
@@ -24,6 +25,9 @@ export const Header = () => {
             </Nav.Link>
             <Nav.Link className="me-5 fs-5 nav-text" onClick={handelClickAddDramas}>
               Add Dramas
+            </Nav.Link>
+            <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickFindDramas}>
+              Find Dramas
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
