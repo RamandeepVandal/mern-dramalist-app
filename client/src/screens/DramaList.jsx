@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 import { Dramas } from "../components/Dramas";
 
 export const DramaList = () => {
@@ -19,13 +20,15 @@ export const DramaList = () => {
 
   // filter drama on delete
   const filterDrama = (id) => {
-    setDramas(dramas => dramas.filter(drama => drama._id !== id));
-  }
+    setDramas((dramas) => dramas.filter((drama) => drama._id !== id));
+  };
 
   return (
     <div>
       <Header />
       <Dramas dramas={dramas} filterDrama={filterDrama} />
+      {/* FOOTER SECTION */}
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 export const AddDramas = () => {
   const [dramaName, setDramaName] = useState("");
@@ -64,6 +65,9 @@ export const AddDramas = () => {
           </div>
         </div>
       </section>
+
+      {/* FOOTER SECTION */}
+      <Footer />
     </div>
   );
 };
