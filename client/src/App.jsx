@@ -5,6 +5,7 @@ import { DramaList } from "./screens/DramaList";
 import { AddDramas } from "./screens/AddDramas";
 import { EditDramas } from "./screens/EditDramas";
 import { LandingPage } from "./screens/LandingPage";
+import { FindDramas } from "./screens/FindDramas";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/drama" element={<DramaList />} />
         <Route exact path="/add" element={<AddDramas />} />
         <Route exact path="/edit" element={<EditDramas />} />
+        <Route exact path='/find' element={<FindDramas />} />
       </Routes>
     </Router>
   );
