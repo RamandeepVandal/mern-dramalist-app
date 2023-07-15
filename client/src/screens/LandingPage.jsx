@@ -13,7 +13,8 @@ export const LandingPage = () => {
   // Navigate to the dramalist page
   const navigate = useNavigate();
   const handleClickDramaList = () => navigate("/drama");
-  const handleClickDramaAdd = () => navigate("/add");
+  const handleClickDramaFind = () => navigate("/find");
+  const handleClickDramaSearch = () => navigate("/search");
 
   return (
     <div>
@@ -59,13 +60,13 @@ export const LandingPage = () => {
                       src={supportTeam}
                       alt="add illustration"
                     />
-                    <h1>Add Dramas</h1>
+                    <h1 className="fs-2">Find Dramas</h1>
                     <p>Create a collection of your favorite dramas.</p>
                     <button
                       className="btn btn-explore"
-                      onClick={handleClickDramaAdd}
+                      onClick={handleClickDramaFind}
                     >
-                      Add Dramas
+                      Find Dramas
                     </button>
                   </div>
                 </div>
@@ -76,7 +77,7 @@ export const LandingPage = () => {
                       src={taskImg}
                       alt="add illustration"
                     />
-                    <h1>Save Dramas</h1>
+                    <h1 className="fs-2">Save Dramas</h1>
                     <p>Save your watched dramas to keep track.</p>
                     <button
                       className=" btn btn-explore"
@@ -93,13 +94,13 @@ export const LandingPage = () => {
                       src={remoteTeam}
                       alt="add illustration"
                     />
-                    <h1>Edit Dramas</h1>
-                    <p>Edit the genres and ratings of your dramas.</p>
+                    <h1 className="fs-2">Search Dramas</h1>
+                    <p>Search for your favourite dramas on DramaList.</p>
                     <button
                       className="btn btn-explore"
-                      onClick={handleClickDramaList}
+                      onClick={handleClickDramaSearch}
                     >
-                      Edit Dramas
+                      Search Dramas
                     </button>
                   </div>
                 </div>
