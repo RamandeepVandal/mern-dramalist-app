@@ -5,10 +5,14 @@ const dramaSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    genre: [{
+    description: {
         type: String,
         required: true
-    }]
+    },
+    imgURL: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Dramas', dramaSchema);
