@@ -8,13 +8,13 @@ export const Header = () => {
   const navigate = useNavigate();
   const handleClick = () => navigate("/");
   const handleClickDrama = () => navigate("/drama");
-  const handelClickAddDramas = () => navigate("/add");
   const handleClickFindDramas = () => navigate("/find")
+  const handleClickSearchDramas = () => navigate("/search")
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="light">
       <Container>
-        <Navbar.Brand className="nav-brand fs-4 nav-text" onClick={handleClick}>
+        <Navbar.Brand className="nav-brand fs-1 nav-text" onClick={handleClick}>
           DramaList
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -23,11 +23,11 @@ export const Header = () => {
             <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickDrama} >
               Dramas
             </Nav.Link>
-            <Nav.Link className="me-5 fs-5 nav-text" onClick={handelClickAddDramas}>
-              Add Dramas
-            </Nav.Link>
             <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickFindDramas}>
               Find Dramas
+            </Nav.Link>
+            <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickSearchDramas}>
+              Search Dramas
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
