@@ -5,7 +5,11 @@ import { Dramas } from "../components/Dramas";
 
 export const DramaList = () => {
   // dramas
-  const [dramas, setDramas] = useState([{}]);
+  const [dramas, setDramas] = useState([{
+    name: 'One Spring Night',
+    description: 'When Lee Jeong-in and Yu Ji-ho meet, something unexpected happens. Or it just may be that spring is in the air -- and anything is possible.',
+    imgURL: '/kFEIbuGVbIDQ5GPOWdw6heZVXKC.jpg'
+  }]);
 
   // get the data
   useEffect(() => {
