@@ -5,10 +5,7 @@ import { Dramas } from "../components/Dramas";
 
 export const DramaList = () => {
   // dramas
-  const [dramas, setDramas] = useState([{
-    name: 'One Piece',
-    genre: ['Adventure', 'Action', 'Fantasy', 'Comedy']
-  }]);
+  const [dramas, setDramas] = useState([{}]);
 
   // get the data
   useEffect(() => {
