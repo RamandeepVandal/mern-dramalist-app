@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Footer = () => {
+  const navigate = useNavigate();
+  const handleClickDrama = () => navigate("/drama");
+
   return (
     <section className="footer container">
       <div className="container d-flex justify-content-evenly align-items-center p-2 footer-container">
@@ -12,7 +16,7 @@ export const Footer = () => {
                   DramaList
                 </a>
                 <p className="fs-4">We live and breathe dramas.</p>
-                <button className="fs-4 btn btn-explore">Explore</button>
+                <button className="fs-4 btn btn-explore" onClick={handleClickDrama}>Explore</button>
               </div>
             </div>
           </div>
