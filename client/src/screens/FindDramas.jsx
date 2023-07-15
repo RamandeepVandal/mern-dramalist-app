@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Axios from 'axios';
+// components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
@@ -43,9 +45,20 @@ export const FindDramas = () => {
     getDrama(genre, page, lang);
   };
 
-  // add drama to list
+  // Add drama to the db
+  const addDrama = async(name, description, imgUrl) => {
+    try {
+      await Axios.post("http://localhost:5000/dramas", {
+        name: name,
+        description: description,
+        imgURL: imgUrl
+      }, { crossDomain: true });
+      alert("Success!");
+    } catch (error) {
+      console.log(error);
+    }
+  }
   
-
   return (
     <section>
       <Header />
@@ -128,11 +141,12 @@ export const FindDramas = () => {
                           src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
                           alt="poster"
                           className="card-img-top img-fluid"
+                          loading="lazy"
                         />
                         <p className="fs-4">{item?.name}</p>
                         <p>{item?.overview}</p>
 
-                        <button className="btn btn-explore">Add to list</button>
+                        <button className="btn btn-explore" onClick={() => addDrama(item?.name, item?.overview, item?.poster_path)}>Add to list</button>
                       </div>
                     </div>
                   );
@@ -147,18 +161,3 @@ export const FindDramas = () => {
     </section>
   );
 };
-
-/*
-
-              <div className="form-floating mb-3">
-                  <input
-                    type="number"
-                    className="form-control"
-                    id="year"
-                    value={yearDate}
-                    onChange={(e) => setYearDate(e.target.value)}
-                  />
-                  <label htmlFor="year">Year</label>
-                </div>
-
- */
