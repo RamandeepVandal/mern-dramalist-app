@@ -1,25 +1,46 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --white: #fffffe;
-  --yellow: #ffd803;
-  --light-yellow:#ffe242;
-  --header-color: #272343;
-  --p-color: #2d334a;
-  --btn-text: #272343;
-  --skyblue: #e3f6f5;
+  --text: rgb(232, 243, 238);
+  --background: rgb(0, 0, 0);
+  --primary: rgb(99, 171, 141);
+  --secondary: rgb(27, 50, 40);
+  --accent: rgb(106, 175, 146);
+  --primary-accent: rgba(99, 171, 141, 0.2);
+  --secondary-accent: rgba(27, 50, 40, 0.275);
+}
+
+:root[data-theme="light"] {
+  --text: rgb(12, 23, 18);
+  --background: rgb(255, 255, 255);
+  --primary: rgb(84, 156, 126);
+  --secondary: rgb(205, 228, 218);
+  --accent: rgb(80, 149, 120);
+}
+
+:root[data-theme="dark"] {
+  --text: rgb(232, 243, 238);
+  --background: rgb(0, 0, 0);
+  --primary: rgb(99, 171, 141);
+  --secondary: rgb(27, 50, 40);
+  --accent: rgb(106, 175, 146);
 }
 
 body {
-  background-color: #fffffe;
+  background-color: var(--background);
 }
 
 h1 {
-  color: var(--header-color);
+  color: var(--text);
   font-weight: bold;
 }
 
 p {
-  color: var(--p-color);
+  color: var(--text);
+}
+
+.card {
+  background-color: var(--primary-accent);
+  border: none;
 }
 
 /* NAVBAR */
@@ -29,11 +50,11 @@ p {
 }
 
 .nav-text {
-  color: var(--header-color);
+  color: var(--text);
 }
 
 .nav-text:hover {
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 /* HERO SECTION */
@@ -42,25 +63,19 @@ p {
 }
 
 .btn-explore {
-  background-color: var(--yellow);
-  color: var(--btn-text);
-  transition: 0.5s all ease;
+  background-color: var(--primary);
+  color: var(--text);
+  transition: 0.35s all ease;
 }
 
 .btn-explore:hover {
-  background-color: var(--light-yellow);
-  box-shadow: 0px 2px 4px var(--light-yellow);
+  background-color: var(--primary-accent);
+  color: var(--text);
 }
 
 /* ABOUT SECTION */
 .about {
   min-height: 100vh;
-  background-color: var(--skyblue);
-}
-
-.services-container {
-  border: none;
-  box-shadow: 0px 2px 4px var(--white);
 }
 
 @media only screen and (max-width: 992px) {
@@ -72,25 +87,30 @@ p {
 
 .card-img-top {
   width: 100%;
+  height: 25vw;
+  object-fit: cover;
+}
+
+.card-img-top-drama {
+  width: 100%;
   height: 50vw;
   object-fit: cover;
 }
 
 /* DRAMAS PAGE */
 .drama-container {
-  background-color: var(--skyblue);
   border: none;
-  box-shadow: 0px 3px 15px var(--skyblue);
+  background-color: var(--secondary-accent);
 }
 
 .drama-container h1 {
-  color: var(--header-color);
+  color: var(--text);
   font-weight: 600;
 }
 
 .genre-tags {
-  background: var(--white);
-  color: var(--header-color);
+  background: var(--background);
+  color: var(--text);
   font-weight: 600;
   border: none;
 }
@@ -98,33 +118,26 @@ p {
 .icon-img {
   transition: 0.25s ease all;
   cursor: pointer;
-  fill: var(--header-color);
+  fill: var(--accent);
 }
 
 .icon-img:hover {
-  fill: var(--yellow);
+  fill: red;
 }
 
 /* ADD,EDIT DRAMA PAGE */
 .form-card {
   border: none;
-  background-color: var(--skyblue);
-  box-shadow: 0px 3px 15px var(--skyblue);
-}
-
-/* CONTACT SECTION */
-.contact {
-  background-color: var(--skyblue); 
 }
 
 /* FOOTER SECTION */
 .footer a {
   text-decoration: none;
-  color: var(--header-color);
+  color: var(--text);
 }
 
 .footer a:hover {
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 @media only screen and (max-width: 992px) {
@@ -160,7 +173,5 @@ p {
 }
 
 .find-card {
-  border: none;
-  background-color: var(--skyblue);
-  box-shadow: 0px 3px 15px var(--skyblue);
+  background-color: var(--secondary-accent);
 }
