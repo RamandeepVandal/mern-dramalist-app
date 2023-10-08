@@ -122,6 +122,10 @@ p {
 }
 
 .icon-img:hover {
+  fill: var(--primary-accent)
+}
+
+.icon-img-delete:hover {
   fill: red;
 }
 
@@ -131,9 +135,23 @@ p {
 }
 
 /* FOOTER SECTION */
+.footer {
+  min-height: 10vh;
+}
+
+.footer-links {
+  background-color: var(--primary-accent);
+}
+
+.footer-socials {
+  background-color: var(--secondary-accent);
+}
+
 .footer a {
+  cursor: pointer;
   text-decoration: none;
   color: var(--text);
+  transition: 0.5s ease all;
 }
 
 .footer a:hover {
