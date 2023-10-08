@@ -54,7 +54,7 @@ export const LandingPage = () => {
             <div className="container">
               <div className="row">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-4">
-                  <div className="card container p-5 text-center services-container">
+                  <div className="card container p-5 text-center find-card services-container">
                     <img
                       className="card-img-top"
                       src={supportTeam}
@@ -88,7 +88,7 @@ export const LandingPage = () => {
                   </div>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-4">
-                  <div className="card container p-5 text-center services-container">
+                  <div className="card container p-5 text-center find-card services-container">
                     <img
                       className="card-img-top"
                       src={remoteTeam}
