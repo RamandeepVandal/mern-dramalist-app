@@ -18,14 +18,14 @@ export const Drama = ({ drama, filterDrama }) => {
   return (
     <>
       <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch">
-        <div className="card find-card p-5 m-5 text-center">
+        <div className="card find-card p-5 m-5 text-center w-100">
           <img
             src={`http://image.tmdb.org/t/p/w500/${drama?.imgURL}`}
             alt="poster"
-            className="card-img-top img-fluid"
+            className="card-img-top-drama img-fluid"
             loading="lazy"
           />
-          <div className="d-flex align-items-center mb-2 mt-2 container">
+          <div className="d-flex align-items-center mt-3 container">
             <h1 className="fs-4">{drama?.name}</h1>
             <div className="ms-auto">
               <button className="btn" onClick={() => deleteDrama(drama?._id)}>
@@ -34,7 +34,7 @@ export const Drama = ({ drama, filterDrama }) => {
                   width="25"
                   height="25"
                   fill="#486fff"
-                  className="bi bi-trash icon-img"
+                  className="bi bi-trash icon-img icon-img-delete"
                   viewBox="0 0 16 16"
                 >
                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
@@ -43,7 +43,7 @@ export const Drama = ({ drama, filterDrama }) => {
               </button>
             </div>
           </div>
-          <p>{drama?.description}</p>
+          
         </div>
       </div>
     </>
@@ -52,5 +52,5 @@ export const Drama = ({ drama, filterDrama }) => {
 
 /* 
 
- 
+<p>{drama?.description}</p> 
 */
