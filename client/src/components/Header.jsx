@@ -8,8 +8,8 @@ export const Header = () => {
   const navigate = useNavigate();
   const handleClick = () => navigate("/");
   const handleClickDrama = () => navigate("/drama");
-  const handleClickFindDramas = () => navigate("/find")
-  const handleClickSearchDramas = () => navigate("/search")
+  const handleClickFindDramas = () => navigate("/find");
+  const handleClickSearchDramas = () => navigate("/search");
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="light">
@@ -20,13 +20,19 @@ export const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickDrama} >
+            <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickDrama}>
               Dramas
             </Nav.Link>
-            <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickFindDramas}>
+            <Nav.Link
+              className="me-5 fs-5 nav-text"
+              onClick={handleClickFindDramas}
+            >
               Find Dramas
             </Nav.Link>
-            <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickSearchDramas}>
+            <Nav.Link
+              className="me-5 fs-5 nav-text"
+              onClick={handleClickSearchDramas}
+            >
               Search Dramas
             </Nav.Link>
           </Nav>

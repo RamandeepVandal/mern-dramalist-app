@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Axios from 'axios';
+import Axios from "axios";
 // components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -8,13 +8,13 @@ export const FindDramas = () => {
   // genre and year state
   const [genre, setGenre] = useState(10759);
   const [page, setPage] = useState(1);
-  const [lang, setLang] = useState("ko");
+  const [lang, setLang] = useState("en");
 
   // dramas
   const [drama, setDrama] = useState([{}]);
 
   useEffect(() => {
-    getDrama();
+    getDrama(genre, page, lang);
   }, []);
 
   // set the auth key
@@ -46,19 +46,23 @@ export const FindDramas = () => {
   };
 
   // Add drama to the db
-  const addDrama = async(name, description, imgUrl) => {
+  const addDrama = async (name, description, imgUrl) => {
     try {
-      await Axios.post("http://localhost:5000/dramas", {
-        name: name,
-        description: description,
-        imgURL: imgUrl
-      }, { crossDomain: true });
+      await Axios.post(
+        "http://localhost:5000/dramas",
+        {
+          name: name,
+          description: description,
+          imgURL: imgUrl,
+        },
+        { crossDomain: true }
+      );
       alert("Success!");
     } catch (error) {
       console.log(error);
     }
-  }
-  
+  };
+
   return (
     <section>
       <Header />
@@ -72,13 +76,12 @@ export const FindDramas = () => {
               <form onSubmit={onSubmit} className="card form-card p-5 mt-2">
                 <div className="form-floating mb-3">
                   <select
-                    class="form-select mb-3"
+                    className="form-select mb-3"
                     id="genre"
                     value={genre}
                     onChange={(e) => setGenre(e.target.value)}
                   >
                     <option value="10759">Action & Adventure</option>
-                    <option value="10749">Romance</option>
                     <option value="35">Comedy</option>
                     <option value="80">Crime</option>
                     <option value="18">Drama</option>
@@ -87,11 +90,13 @@ export const FindDramas = () => {
                     <option value="10765">Sci-Fi & Fantasy</option>
                     <option value="10766">Soap</option>
                   </select>
-                  <label htmlFor="genre">Genres</label>
+                  <label className="form-label" htmlFor="genre">
+                    Genres
+                  </label>
                 </div>
                 <div className="form-floating mb-3">
                   <select
-                    class="form-select mb-3"
+                    className="form-select mb-3"
                     id="page"
                     value={page}
                     onChange={(e) => setPage(e.target.value)}
@@ -102,19 +107,26 @@ export const FindDramas = () => {
                     <option value="4">Four</option>
                     <option value="5">Five</option>
                   </select>
-                  <label htmlFor="page">Page</label>
+                  <label className="form-label" htmlFor="page">
+                    Page
+                  </label>
                 </div>
                 <div className="form-floating mb-3">
                   <select
-                    class="form-select mb-3"
+                    className="form-select mb-3"
                     id="lang"
                     value={lang}
                     onChange={(e) => setLang(e.target.value)}
                   >
                     <option value="ko">Korean</option>
                     <option value="en">English</option>
+                    <option value="ja">Japanese</option>
+                    <option value="es">Spanish</option>
+                    <option value="hi">Hindi</option>
                   </select>
-                  <label htmlFor="lang">Language</label>
+                  <label className="form-label" htmlFor="lang">
+                    Language
+                  </label>
                 </div>
                 <button type="submit" className="btn btn-explore">
                   Find
@@ -128,14 +140,12 @@ export const FindDramas = () => {
         <div className="d-flex flex-wrap justify-content-center align-items-center">
           <div className="container">
             <div className="row">
-              {console.log(drama)}
               {drama &&
                 drama.map((item, key) => {
                   return (
-                    <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch">
+                    <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch" key={key}>
                       <div
-                        className="card find-card p-5 m-5 text-center"
-                        key={key}
+                        className="card find-card p-5 m-5 text-center w-100"
                       >
                         <img
                           src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
@@ -144,9 +154,19 @@ export const FindDramas = () => {
                           loading="lazy"
                         />
                         <p className="fs-4">{item?.name}</p>
-                        <p>{item?.overview}</p>
 
-                        <button className="btn btn-explore" onClick={() => addDrama(item?.name, item?.overview, item?.poster_path)}>Add to list</button>
+                        <button
+                          className="btn btn-explore"
+                          onClick={() =>
+                            addDrama(
+                              item?.name,
+                              item?.overview,
+                              item?.poster_path
+                            )
+                          }
+                        >
+                          Add to list
+                        </button>
                       </div>
                     </div>
                   );

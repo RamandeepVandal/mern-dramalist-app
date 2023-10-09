@@ -67,7 +67,7 @@ export const SearchDramas = () => {
               <form onSubmit={onSubmit} className="card form-card p-5 mt-2">
                 <div className="form-floating mb-3">
                   <input
-                    class="form-control mb-3"
+                    className="form-control mb-3"
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -89,10 +89,9 @@ export const SearchDramas = () => {
               {drama &&
                 drama.map((item, key) => {
                   return (
-                    <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch">
+                    <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch" key={key}>
                       <div
-                        className="card find-card p-5 m-5 text-center"
-                        key={key}
+                        className="card find-card p-5 m-5 text-center w-100"
                       >
                         <img
                           src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
@@ -101,7 +100,6 @@ export const SearchDramas = () => {
                           loading="lazy"
                         />
                         <p className="fs-4">{item?.name}</p>
-                        <p>{item?.overview}</p>
 
                         <button className="btn btn-explore" onClick={() => addDrama(item?.name, item?.overview, item?.poster_path)}>Add to list</button>
                       </div>
