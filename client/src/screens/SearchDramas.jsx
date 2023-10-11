@@ -11,7 +11,8 @@ export const SearchDramas = () => {
   const [drama, setDrama] = useState([{}]);
 
   useEffect(() => {
-    getDrama();
+    const DefaultName = 'Game';
+    getDrama(DefaultName);
   }, []);
 
   // set the auth key
