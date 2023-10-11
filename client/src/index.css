@@ -7,22 +7,23 @@
   --accent: rgb(106, 175, 146);
   --primary-accent: rgba(99, 171, 141, 0.2);
   --secondary-accent: rgba(27, 50, 40, 0.275);
+
+  --fs-xxl: clamp(3.5rem, 12vw + 1rem, 10rem);
+  --fs-title-h1: 5rem;
+  --fs-sub-title-h: 3rem;
+  --fs-title-p: 1.5rem;
+  --fs-600: 2rem;
+  --fs-400: 1rem;
 }
 
-:root[data-theme="light"] {
-  --text: rgb(12, 23, 18);
-  --background: rgb(255, 255, 255);
-  --primary: rgb(84, 156, 126);
-  --secondary: rgb(205, 228, 218);
-  --accent: rgb(80, 149, 120);
-}
-
-:root[data-theme="dark"] {
-  --text: rgb(232, 243, 238);
-  --background: rgb(0, 0, 0);
-  --primary: rgb(99, 171, 141);
-  --secondary: rgb(27, 50, 40);
-  --accent: rgb(106, 175, 146);
+@media (min-width: 768px) {
+  :root {
+    --fs-title-h1: 8rem;
+    --fs-sub-title-h: 4rem;
+    --fs-title-p: 2.5rem;
+    --fs-600: 2.5rem;
+    --fs-400: 1.155rem;
+  }
 }
 
 body {
@@ -38,9 +39,18 @@ p {
   color: var(--text);
 }
 
+.sub-title {
+  font-size: var(--fs-sub-title-h);
+}
+
 .card {
   background-color: var(--primary-accent);
   border: none;
+}
+
+.card-footer {
+  border: none;
+  background: none;
 }
 
 /* NAVBAR */
@@ -59,7 +69,44 @@ p {
 
 /* HERO SECTION */
 .hero {
-  min-height: 90vh;
+  min-height: 100vh;
+}
+
+.hero-content h1 {
+  font-size: var(--fs-title-h1);
+}
+
+.hero-content p {
+  font-size: var(--fs-title-p);
+}
+
+.video-bg {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: rgba(27, 50, 40, 0.275);
+}
+
+video {
+  filter: brightness(40%);
+}
+
+@media screen and (max-width: 800px) {
+  .hero {
+    min-height: 40vh;
+  }
+
+  .hero-content {
+    justify-content: center;
+  }
+
+  .video-bg {
+    display: none;
+  }
 }
 
 .btn-explore {
@@ -75,7 +122,15 @@ p {
 
 /* ABOUT SECTION */
 .about {
-  min-height: 100vh;
+  min-height: 40vh;
+}
+
+.services-container h1 {
+  font-size: var(--fs-600);
+}
+
+.services-container p {
+  font-size: var(--fs-400);
 }
 
 @media only screen and (max-width: 992px) {
@@ -134,11 +189,12 @@ p {
   border: none;
 }
 
-/* FOOTER SECTION */
-.footer {
-  min-height: 10vh;
+/* CONTACT SECTION */
+.contact {
+  min-height: 20vh;
 }
 
+/* FOOTER SECTION */
 .footer-links {
   background-color: var(--primary-accent);
 }
@@ -162,9 +218,15 @@ p {
   .footer-container {
     flex-direction: column;
   }
+
   .sub-form {
     flex-direction: column;
   }
+
+  .sub-form button {
+    margin-top: 10px;
+  }
+
   .footer-card-size {
     flex-direction: column;
     margin-top: 5px;

@@ -9,12 +9,12 @@ export const Footer = () => {
     <section className="footer mt-5">
       <section className="footer-links p-1">
         <section className="d-flex align-items-center justify-content-between">
-          <a className="ms-5">DramaList</a>
+          <a className="ms-5 me-5">DramaList</a>
           <article className="d-flex justify-content-evenly me-5">
-            <a className="ms-5">About</a>
-            <a className="ms-5">Contact</a>
-            <a className="ms-5">Privacy policy</a>
-            <a className="ms-5">Blog</a>
+            <a className="ms-3">About</a>
+            <a className="ms-3">Contact</a>
+            <a className="ms-3">Privacy</a>
+            <a className="ms-3">Blog</a>
           </article>
         </section>
       </section>
