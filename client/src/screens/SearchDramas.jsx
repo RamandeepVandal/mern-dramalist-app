@@ -72,10 +72,18 @@ export const SearchDramas = () => {
   return (
     <section>
       {loading ? (
-        <div className="App">
-          <Spinner animation="border" role="status" variant="success" size="lg">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
+        <div>
+          <Header />
+          <div className="App">
+            <Spinner
+              animation="border"
+              role="status"
+              variant="success"
+              size="lg"
+            >
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
         </div>
       ) : (
         <div>
