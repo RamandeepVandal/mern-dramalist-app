@@ -17,8 +17,8 @@ export const Drama = ({ drama, filterDrama }) => {
 
   return (
     <>
-      <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch">
-        <div className="card find-card p-5 m-5 text-center w-100">
+      <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch mb-4">
+        <div className="card find-card p-5 text-center w-100">
           <img
             src={`http://image.tmdb.org/t/p/w500/${drama?.imgURL}`}
             alt="poster"
