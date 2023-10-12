@@ -3,6 +3,8 @@ import Axios from "axios";
 // components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+// bootstrap spinner
+import Spinner from "react-bootstrap/Spinner";
 
 export const FindDramas = () => {
   // genre and year state
@@ -12,9 +14,16 @@ export const FindDramas = () => {
 
   // dramas
   const [drama, setDrama] = useState([{}]);
+  // loading
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     getDrama(genre, page, lang);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
 
   // set the auth key
@@ -65,119 +74,130 @@ export const FindDramas = () => {
 
   return (
     <section>
-      <Header />
-
-      <section className="container d-flex justify-content-center align-items-center flex-column p-5 add-edit-drama find-section">
-        <h1>Find Dramas</h1>
-        {/* FORM SECTION */}
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-              <form onSubmit={onSubmit} className="card form-card p-5 mt-2">
-                <div className="form-floating mb-3">
-                  <select
-                    className="form-select mb-3"
-                    id="genre"
-                    value={genre}
-                    onChange={(e) => setGenre(e.target.value)}
-                  >
-                    <option value="10759">Action & Adventure</option>
-                    <option value="35">Comedy</option>
-                    <option value="80">Crime</option>
-                    <option value="18">Drama</option>
-                    <option value="10751">Family</option>
-                    <option value="9648">Mystery</option>
-                    <option value="10765">Sci-Fi & Fantasy</option>
-                    <option value="10766">Soap</option>
-                  </select>
-                  <label className="form-label" htmlFor="genre">
-                    Genres
-                  </label>
-                </div>
-                <div className="form-floating mb-3">
-                  <select
-                    className="form-select mb-3"
-                    id="page"
-                    value={page}
-                    onChange={(e) => setPage(e.target.value)}
-                  >
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    <option value="4">Four</option>
-                    <option value="5">Five</option>
-                  </select>
-                  <label className="form-label" htmlFor="page">
-                    Page
-                  </label>
-                </div>
-                <div className="form-floating mb-3">
-                  <select
-                    className="form-select mb-3"
-                    id="lang"
-                    value={lang}
-                    onChange={(e) => setLang(e.target.value)}
-                  >
-                    <option value="ko">Korean</option>
-                    <option value="en">English</option>
-                    <option value="ja">Japanese</option>
-                    <option value="es">Spanish</option>
-                    <option value="hi">Hindi</option>
-                  </select>
-                  <label className="form-label" htmlFor="lang">
-                    Language
-                  </label>
-                </div>
-                <button type="submit" className="btn btn-explore">
-                  Find
-                </button>
-              </form>
-            </div>
-          </div>
+      {loading ? (
+        <div className="App">
+          <Spinner animation="border" role="status" variant="success" size="lg">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
         </div>
+      ) : (
+        <div>
+          <Header />
 
-        {/* SHOW DRAMA RESULTS SECTION */}
-        <div className="d-flex flex-wrap justify-content-center align-items-center">
-          <div className="container">
-            <div className="row">
-              {drama &&
-                drama.map((item, key) => {
-                  return (
-                    <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch" key={key}>
-                      <div
-                        className="card find-card p-5 m-5 text-center w-100"
+          <section className="container d-flex justify-content-center align-items-center flex-column p-5 add-edit-drama find-section">
+            <h1>Find Dramas</h1>
+            {/* FORM SECTION */}
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                  <form onSubmit={onSubmit} className="card form-card p-5 mt-2">
+                    <div className="form-floating mb-3">
+                      <select
+                        className="form-select mb-3"
+                        id="genre"
+                        value={genre}
+                        onChange={(e) => setGenre(e.target.value)}
                       >
-                        <img
-                          src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
-                          alt="poster"
-                          className="card-img-top img-fluid"
-                          loading="lazy"
-                        />
-                        <p className="fs-4">{item?.name}</p>
-
-                        <button
-                          className="btn btn-explore"
-                          onClick={() =>
-                            addDrama(
-                              item?.name,
-                              item?.overview,
-                              item?.poster_path
-                            )
-                          }
-                        >
-                          Add to list
-                        </button>
-                      </div>
+                        <option value="10759">Action & Adventure</option>
+                        <option value="35">Comedy</option>
+                        <option value="80">Crime</option>
+                        <option value="18">Drama</option>
+                        <option value="10751">Family</option>
+                        <option value="9648">Mystery</option>
+                        <option value="10765">Sci-Fi & Fantasy</option>
+                        <option value="10766">Soap</option>
+                      </select>
+                      <label className="form-label" htmlFor="genre">
+                        Genres
+                      </label>
                     </div>
-                  );
-                })}
+                    <div className="form-floating mb-3">
+                      <select
+                        className="form-select mb-3"
+                        id="page"
+                        value={page}
+                        onChange={(e) => setPage(e.target.value)}
+                      >
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                        <option value="5">Five</option>
+                      </select>
+                      <label className="form-label" htmlFor="page">
+                        Page
+                      </label>
+                    </div>
+                    <div className="form-floating mb-3">
+                      <select
+                        className="form-select mb-3"
+                        id="lang"
+                        value={lang}
+                        onChange={(e) => setLang(e.target.value)}
+                      >
+                        <option value="ko">Korean</option>
+                        <option value="en">English</option>
+                        <option value="ja">Japanese</option>
+                        <option value="es">Spanish</option>
+                        <option value="hi">Hindi</option>
+                      </select>
+                      <label className="form-label" htmlFor="lang">
+                        Language
+                      </label>
+                    </div>
+                    <button type="submit" className="btn btn-explore">
+                      Find
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* FOOTER SECTION */}
-      <Footer />
+            {/* SHOW DRAMA RESULTS SECTION */}
+            <div className="d-flex flex-wrap justify-content-center align-items-center">
+              <div className="container">
+                <div className="row">
+                  {drama &&
+                    drama.map((item, key) => {
+                      return (
+                        <div
+                          className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch"
+                          key={key}
+                        >
+                          <div className="card find-card p-5 m-5 text-center w-100">
+                            <img
+                              src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
+                              alt="poster"
+                              className="card-img-top img-fluid"
+                              loading="lazy"
+                            />
+                            <p className="fs-4">{item?.name}</p>
+
+                            <button
+                              className="btn btn-explore"
+                              onClick={() =>
+                                addDrama(
+                                  item?.name,
+                                  item?.overview,
+                                  item?.poster_path
+                                )
+                              }
+                            >
+                              Add to list
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FOOTER SECTION */}
+          <Footer />
+        </div>
+      )}
     </section>
   );
 };
