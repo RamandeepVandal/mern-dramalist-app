@@ -14,23 +14,23 @@ export const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" variant="light">
       <Container>
-        <Navbar.Brand className="nav-brand fs-1 nav-text" onClick={handleClick}>
+        <Navbar.Brand className="nav-brand content-h-md nav-text" onClick={handleClick}>
           DramaList
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link className="me-5 fs-5 nav-text" onClick={handleClickDrama}>
+            <Nav.Link className="me-5 content-p nav-text" onClick={handleClickDrama}>
               Dramas
             </Nav.Link>
             <Nav.Link
-              className="me-5 fs-5 nav-text"
+              className="me-5 content-p nav-text"
               onClick={handleClickFindDramas}
             >
               Find Dramas
             </Nav.Link>
             <Nav.Link
-              className="me-5 fs-5 nav-text"
+              className="me-5 content-p nav-text"
               onClick={handleClickSearchDramas}
             >
               Search Dramas

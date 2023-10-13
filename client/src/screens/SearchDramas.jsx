@@ -95,7 +95,7 @@ export const SearchDramas = () => {
           <Header />
 
           <section className="container d-flex justify-content-center align-items-center flex-column p-5 add-edit-drama find-section">
-            <h1>Search Dramas</h1>
+            <h1 className="sub-title">Search Dramas</h1>
             {/* FORM SECTION */}
             <div className="container">
               <div className="row">
@@ -153,7 +153,7 @@ export const SearchDramas = () => {
                                   className="card-img-top-drama img-fluid"
                                   loading="lazy"
                                 />
-                                <p className="fs-4 mt-2">{item?.name}</p>
+                                <p className="content-h-md mt-2">{item?.name}</p>
 
                                 <div className="card-footer mt-auto">
                                   <button

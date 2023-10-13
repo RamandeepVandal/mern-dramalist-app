@@ -26,7 +26,7 @@ export const Drama = ({ drama, filterDrama }) => {
             loading="lazy"
           />
           <div className="d-flex align-items-center mt-3 container">
-            <h1 className="fs-4">{drama?.name}</h1>
+            <h1 className="content-h-md">{drama?.name}</h1>
             <div className="ms-auto">
               <button className="btn" onClick={() => deleteDrama(drama?._id)}>
                 <svg
