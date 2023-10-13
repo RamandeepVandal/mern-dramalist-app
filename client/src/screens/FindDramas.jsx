@@ -16,6 +16,7 @@ export const FindDramas = () => {
   const [drama, setDrama] = useState([{}]);
   // loading
   const [loading, setLoading] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -51,12 +52,12 @@ export const FindDramas = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    setLoading(true);
+    setSearchLoading(true);
     getDrama(genre, page, lang);
 
     setTimeout(() => {
-      setLoading(false);
-    }, 500)
+      setSearchLoading(false);
+    }, 500);
   };
 
   // Add drama to the db
@@ -76,6 +77,8 @@ export const FindDramas = () => {
       console.log(error);
     }
   };
+
+  console.log(drama);
 
   return (
     <section>
@@ -166,45 +169,62 @@ export const FindDramas = () => {
               </div>
             </div>
 
-            {/* SHOW DRAMA RESULTS SECTION */}
-            <div className="d-flex flex-wrap justify-content-center align-items-center mt-5">
-              <div className="container">
-                <div className="row">
-                  {drama &&
-                    drama.map((item, key) => {
-                      return (
-                        <div
-                          className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch mb-4"
-                          key={key}
-                        >
-                          <div className="card find-card p-5 text-center w-100">
-                            <img
-                              src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
-                              alt="poster"
-                              className="card-img-top-drama img-fluid"
-                              loading="lazy"
-                            />
-                            <p className="fs-4">{item?.name}</p>
-
-                            <button
-                              className="btn btn-explore"
-                              onClick={() =>
-                                addDrama(
-                                  item?.name,
-                                  item?.overview,
-                                  item?.poster_path
-                                )
-                              }
+            {searchLoading ? (
+              <div className="App">
+                <Spinner
+                  animation="border"
+                  role="status"
+                  variant="success"
+                  size="lg"
+                >
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              </div>
+            ) : (
+              <div>
+                {/* SHOW DRAMA RESULTS SECTION */}
+                <div className="d-flex flex-wrap justify-content-center align-items-center mt-5">
+                  <div className="container">
+                    <div className="row">
+                      {drama &&
+                        drama.map((item, key) => {
+                          return (
+                            <div
+                              className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch mb-4"
+                              key={key}
                             >
-                              Add to list
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    })}
+                              <div className="card find-card p-5 text-center w-100">
+                                <img
+                                  src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
+                                  alt="poster"
+                                  className="card-img-top-drama img-fluid"
+                                  loading="lazy"
+                                />
+                                <p className="fs-4 mt-2">{item?.name}</p>
+
+                                <div className="card-footer mt-auto">
+                                  <button
+                                    className="btn btn-explore btn-lg"
+                                    onClick={() =>
+                                      addDrama(
+                                        item?.name,
+                                        item?.overview,
+                                        item?.poster_path
+                                      )
+                                    }
+                                  >
+                                    Add to list
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </section>
 
           {/* FOOTER SECTION */}
