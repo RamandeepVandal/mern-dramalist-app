@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+// react router
+import { useNavigate } from "react-router-dom";
 // components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -17,6 +19,9 @@ export const FindDramas = () => {
   // loading
   const [loading, setLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
+
+  // page url
+  const [url, setUrl] = useState('/find');
 
   useEffect(() => {
     setLoading(true);
@@ -78,7 +83,9 @@ export const FindDramas = () => {
     }
   };
 
-  console.log(drama);
+  // navigation
+  const navigation = useNavigate();
+  const toDetails = (data, url) => navigation('/details', { state: { data, url } });
 
   return (
     <section>
@@ -197,8 +204,9 @@ export const FindDramas = () => {
                                 <img
                                   src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
                                   alt="poster"
-                                  className="card-img-top-drama img-fluid"
+                                  className="card-img-top-drama img-fluid click-img"
                                   loading="lazy"
+                                  onClick={() => toDetails(item, url)}
                                 />
                                 <p className="content-h-md mt-2">{item?.name}</p>
 

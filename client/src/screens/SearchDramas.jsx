@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+// react router
+import { useNavigate } from "react-router-dom";
+// components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 // bootstrap spinner
@@ -14,6 +17,8 @@ export const SearchDramas = () => {
   // loading
   const [loading, setLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
+  // page url
+  const [url, setUrl] = useState('/search');
 
   useEffect(() => {
     setLoading(true);
@@ -73,6 +78,11 @@ export const SearchDramas = () => {
       console.log(error);
     }
   };
+
+  // navigation
+  const navigation = useNavigate();
+  const toDetails = (data, url) => navigation('/details', { state: { data, url } });
+
 
   return (
     <section>
@@ -150,8 +160,9 @@ export const SearchDramas = () => {
                                 <img
                                   src={`http://image.tmdb.org/t/p/w500/${item?.poster_path}`}
                                   alt="poster"
-                                  className="card-img-top-drama img-fluid"
+                                  className="card-img-top-drama img-fluid click-img"
                                   loading="lazy"
+                                  onClick={() => toDetails(item, url)}
                                 />
                                 <p className="content-h-md mt-2">{item?.name}</p>
 

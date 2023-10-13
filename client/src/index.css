@@ -11,7 +11,7 @@
   --fs-xxl: clamp(3.5rem, 12vw + 1rem, 10rem);
   --fs-title-h1: 5rem;
   --fs-sub-title-h: 3rem;
-  --fs-title-p: 1.5rem;
+  --fs-title-p: 1.75rem;
   --fs-600: 1.75rem;
   --fs-400: 1rem;
   --fs-200: 1rem;
@@ -39,7 +39,7 @@ body {
   background-color: var(--background);
 }
 
-h1 {
+h1, h2 {
   color: var(--text);
   font-weight: bold;
 }
@@ -66,6 +66,10 @@ p {
 
 .content-p {
   font-size: var(--fs-400);
+}
+
+.content-p-lg {
+  font-size: var(--fs-title-p);
 }
 
 .content-h-md {
@@ -173,6 +177,10 @@ video {
   object-fit: cover;
 }
 
+.click-img {
+  cursor: pointer;
+}
+
 /* DRAMAS PAGE */
 .drama-container {
   border: none;
@@ -215,8 +223,6 @@ video {
   border: none;
   color: var(--text);
 }
-
-
 
 .form-floating>.form-control-plaintext~label::after,
 .form-floating>.form-control:focus~label::after,
@@ -317,4 +323,16 @@ input {
 
 .find-card {
   background-color: var(--secondary-accent);
+}
+
+/* DramaDetails.jsx */
+.details{
+  min-height: 100vh;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 992px) {
+  .details-section {
+    flex-direction: column;
+  }
 }
