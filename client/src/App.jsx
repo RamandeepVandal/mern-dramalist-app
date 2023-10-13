@@ -6,6 +6,7 @@ import { LandingPage } from "./screens/LandingPage";
 import { FindDramas } from "./screens/FindDramas";
 import { SearchDramas } from "./screens/SearchDramas";
 import { LoginPage } from "./screens/LoginPage";
+import { DramaDetails } from "./screens/DramaDetails";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/find" element={<FindDramas />} />
         <Route exact path="/search" element={<SearchDramas />} />
         <Route exact path="/login" element={<LoginPage />} />
+        <Route exact path="/details" element={<DramaDetails />} />
       </Routes>
     </Router>
   );
