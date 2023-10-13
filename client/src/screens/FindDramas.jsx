@@ -106,7 +106,7 @@ export const FindDramas = () => {
                   <form onSubmit={onSubmit} className="card form-card p-5 mt-2">
                     <div className="form-floating mb-3">
                       <select
-                        className="form-select mb-3"
+                        className="form-select mb-3 shadow-none"
                         id="genre"
                         value={genre}
                         onChange={(e) => setGenre(e.target.value)}
@@ -126,7 +126,7 @@ export const FindDramas = () => {
                     </div>
                     <div className="form-floating mb-3">
                       <select
-                        className="form-select mb-3"
+                        className="form-select mb-3 shadow-none"
                         id="page"
                         value={page}
                         onChange={(e) => setPage(e.target.value)}
@@ -143,7 +143,7 @@ export const FindDramas = () => {
                     </div>
                     <div className="form-floating mb-3">
                       <select
-                        className="form-select mb-3"
+                        className="form-select mb-3 shadow-none"
                         id="lang"
                         value={lang}
                         onChange={(e) => setLang(e.target.value)}

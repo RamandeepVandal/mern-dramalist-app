@@ -102,7 +102,7 @@ export const SearchDramas = () => {
                   <form onSubmit={onSubmit} className="card form-card p-5 mt-2">
                     <div className="form-floating mb-3">
                       <input
-                        className="form-control mb-3"
+                        className="form-control mb-3 shadow-none"
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
