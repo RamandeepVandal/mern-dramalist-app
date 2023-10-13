@@ -197,6 +197,28 @@ video {
   border: none;
 }
 
+.form-select {
+  background-color: var(--background);
+  border: none;
+  color: var(--text);
+}
+
+.form-floating>.form-control-plaintext~label::after,
+.form-floating>.form-control:focus~label::after,
+.form-floating>.form-control:not(:placeholder-shown)~label::after,
+.form-floating>.form-select~label::after {
+  background-color: var(--background);
+  border: none;
+}
+
+.form-floating>.form-control-plaintext~label,
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label,
+.form-floating>.form-select~label {
+  color: var(--accent);
+}
+
+
 /* CONTACT SECTION */
 .contact {
   min-height: 20vh;
