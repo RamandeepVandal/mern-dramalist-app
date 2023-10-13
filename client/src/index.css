@@ -203,6 +203,8 @@ video {
   color: var(--text);
 }
 
+
+
 .form-floating>.form-control-plaintext~label::after,
 .form-floating>.form-control:focus~label::after,
 .form-floating>.form-control:not(:placeholder-shown)~label::after,
@@ -218,6 +220,20 @@ video {
   color: var(--accent);
 }
 
+.form-control {
+  background-color: var(--background);
+  border: none;
+  color: var(--text);
+}
+
+input {
+  color: var(--text);
+}
+
+.form-control:focus {
+  background-color: var(--background);
+  color: var(--text);
+}
 
 /* CONTACT SECTION */
 .contact {
