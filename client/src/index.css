@@ -12,8 +12,9 @@
   --fs-title-h1: 5rem;
   --fs-sub-title-h: 3rem;
   --fs-title-p: 1.5rem;
-  --fs-600: 2rem;
+  --fs-600: 1.75rem;
   --fs-400: 1rem;
+  --fs-200: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -21,7 +22,7 @@
     --fs-title-h1: 8rem;
     --fs-sub-title-h: 4rem;
     --fs-title-p: 2.5rem;
-    --fs-600: 2.5rem;
+    --fs-600: 2.15rem;
     --fs-400: 1.155rem;
   }
 }
@@ -47,8 +48,28 @@ p {
   color: var(--text);
 }
 
+.hero-content h1 {
+  font-size: var(--fs-title-h1);
+}
+
+.hero-content p {
+  font-size: var(--fs-title-p);
+}
+
 .sub-title {
   font-size: var(--fs-sub-title-h);
+}
+
+.content-p-sm {
+  font-size: var(--fs-200);
+}
+
+.content-p {
+  font-size: var(--fs-400);
+}
+
+.content-h-md {
+  font-size: var(--fs-600);
 }
 
 .card {
@@ -78,14 +99,6 @@ p {
 /* HERO SECTION */
 .hero {
   min-height: 100vh;
-}
-
-.hero-content h1 {
-  font-size: var(--fs-title-h1);
-}
-
-.hero-content p {
-  font-size: var(--fs-title-p);
 }
 
 .video-bg {
