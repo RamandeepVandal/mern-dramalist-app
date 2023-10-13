@@ -130,7 +130,7 @@ export const LandingPage = () => {
             <h1 className="text-center sub-title">Get the latest</h1>
             <div className="d-flex m-5 sub-form">
               <input
-                className="form-control p-3"
+                className="form-control p-3 shadow-none"
                 type="text"
                 placeholder="Subscribe to our newsletter"
               />
