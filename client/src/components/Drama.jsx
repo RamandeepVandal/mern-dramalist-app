@@ -20,10 +20,9 @@ export const Drama = ({ drama, filterDrama }) => {
 
   // navigate to dramaDetails
   const navigation = useNavigate();
-  const toDetails = (data, url) =>
-    navigation("/details", { state: { data, url } });
-
-  console.log(drama);
+  const toDetails = (data, url) => {
+    navigation("/userdrama", { state: { data, url } });
+  };
 
   return (
     <>
