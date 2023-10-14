@@ -24,6 +24,10 @@ const dramaSchema = new mongoose.Schema({
     firstAirDate: {
         type: String,
         required: true
+    },
+    voteAverage: {
+        type: String,
+        required: true
     }
 })
 
