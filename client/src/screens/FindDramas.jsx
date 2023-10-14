@@ -66,7 +66,7 @@ export const FindDramas = () => {
   };
 
   // Add drama to the db
-  const addDrama = async (name, description, imgUrl) => {
+  const addDrama = async (name, description, imgUrl, backdropURL, originCountry, firstAirDate) => {
     try {
       await Axios.post(
         "http://localhost:5000/dramas",
@@ -74,6 +74,9 @@ export const FindDramas = () => {
           name: name,
           description: description,
           imgURL: imgUrl,
+          backdropURL: backdropURL, 
+          originCountry: originCountry,
+          firstAirDate: firstAirDate
         },
         { crossDomain: true }
       );
@@ -217,7 +220,10 @@ export const FindDramas = () => {
                                       addDrama(
                                         item?.name,
                                         item?.overview,
-                                        item?.poster_path
+                                        item?.poster_path,
+                                        item?.backdrop_path,
+                                        item?.origin_country[0],
+                                        item?.first_air_date
                                       )
                                     }
                                   >
