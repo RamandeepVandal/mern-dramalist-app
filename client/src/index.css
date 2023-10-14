@@ -182,6 +182,10 @@ video {
 }
 
 /* DRAMAS PAGE */
+.drama-none {
+  min-height: 73.5vh;
+}
+
 .drama-container {
   border: none;
   background-color: var(--secondary-accent);

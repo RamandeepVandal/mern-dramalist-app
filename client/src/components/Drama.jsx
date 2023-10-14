@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +15,16 @@ export const Drama = ({ drama, filterDrama }) => {
     }
   };
 
+  // page url
+  const [url, setUrl] = useState("/drama");
+
+  // navigate to dramaDetails
+  const navigation = useNavigate();
+  const toDetails = (data, url) =>
+    navigation("/details", { state: { data, url } });
+
+  console.log(drama);
+
   return (
     <>
       <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch mb-4">
@@ -22,8 +32,9 @@ export const Drama = ({ drama, filterDrama }) => {
           <img
             src={`http://image.tmdb.org/t/p/w500/${drama?.imgURL}`}
             alt="poster"
-            className="card-img-top-drama img-fluid"
+            className="card-img-top-drama img-fluid click-img"
             loading="lazy"
+            onClick={() => toDetails(drama, url)}
           />
           <div className="d-flex align-items-center mt-3 container">
             <h1 className="content-h-md">{drama?.name}</h1>
@@ -43,7 +54,6 @@ export const Drama = ({ drama, filterDrama }) => {
               </button>
             </div>
           </div>
-          
         </div>
       </div>
     </>
