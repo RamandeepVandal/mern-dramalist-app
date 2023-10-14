@@ -326,13 +326,35 @@ input {
 }
 
 /* DramaDetails.jsx */
-.details{
+.details {
   min-height: 100vh;
   background-size: cover;
+}
+
+.details-img {
+  margin-right: 3rem;
+}
+
+.details-rating {
+  margin-left: 2rem;
 }
 
 @media only screen and (max-width: 992px) {
   .details-section {
     flex-direction: column;
+  }
+
+  .details-text {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .details-img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .details-rating {
+    margin-left: 1rem;
   }
 }
