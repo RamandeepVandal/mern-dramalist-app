@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Axios from "axios";
 // react router
 import { useLocation } from "react-router-dom";
 // components
@@ -23,6 +24,36 @@ export const DramaDetails = () => {
       setLoading(false);
     }, 1000);
   }, []);
+
+  // Add drama to the db
+  const addDrama = async (
+    name,
+    description,
+    imgUrl,
+    backdropURL,
+    originCountry,
+    firstAirDate,
+    voteAverage
+  ) => {
+    try {
+      await Axios.post(
+        "http://localhost:5000/dramas",
+        {
+          name: name,
+          description: description,
+          imgURL: imgUrl,
+          backdropURL: backdropURL,
+          originCountry: originCountry,
+          firstAirDate: firstAirDate,
+          voteAverage: voteAverage,
+        },
+        { crossDomain: true }
+      );
+      alert("Success!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -88,7 +119,22 @@ export const DramaDetails = () => {
                   <p className="content-p-sm">{drama.overview}</p>
                 </div>
 
-                <button className="btn btn-explore btn-lg">Add to list</button>
+                <button
+                  className="btn btn-explore btn-lg"
+                  onClick={() =>
+                    addDrama(
+                      drama?.name,
+                      drama?.overview,
+                      drama?.poster_path,
+                      drama?.backdrop_path,
+                      drama?.origin_country[0],
+                      drama?.first_air_date,
+                      drama?.vote_average
+                    )
+                  }
+                >
+                  Add to list
+                </button>
               </div>
             </div>
           </section>
