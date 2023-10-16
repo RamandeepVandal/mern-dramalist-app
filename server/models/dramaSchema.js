@@ -28,6 +28,11 @@ const dramaSchema = new mongoose.Schema({
     voteAverage: {
         type: String,
         required: true
+    },
+    savedDramaUser: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        require: true
     }
 })
 
