@@ -14,7 +14,7 @@ router.route('/:id').delete(deleteDrama);
 
 
 // USER ROUTES
-router.post('/register').post(registerUser);
-router.post('/login').post(userLogin);
+router.route('/register').post(registerUser);
+router.route('/login').post(userLogin);
 
 module.exports = router;
