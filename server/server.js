@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cors());
 
 // import router
-app.use('/dramas', require('./routes/dramaRoutes'));
+app.use('/dramas', require('./routes/routes'));
 
 // check if the app is running
 app.listen(PORT, () => {
