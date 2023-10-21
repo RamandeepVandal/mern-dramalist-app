@@ -8,6 +8,7 @@ import { SearchDramas } from "./screens/SearchDramas";
 import { LoginPage } from "./screens/LoginPage";
 import { DramaDetails } from "./screens/DramaDetails";
 import { UserDramas } from "./screens/UserDramas";
+import { RegisterPage } from "./screens/RegisterPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/find" element={<FindDramas />} />
         <Route exact path="/search" element={<SearchDramas />} />
         <Route exact path="/login" element={<LoginPage />} />
+        <Route exact path="/register" element={<RegisterPage />} />
         <Route exact path="/details" element={<DramaDetails />} />
         <Route exact path='/userdrama' element={<UserDramas />} />
       </Routes>
