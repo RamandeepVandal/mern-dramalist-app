@@ -8,7 +8,7 @@ const router = express.Router();
 // DRAMA ROUTES
 
 // get and post requests
-router.route('/').get(getDrama).post(addDrama);
+router.route('/').post(getDrama).post(addDrama);
 // put and delete requests
 router.route('/:id').delete(deleteDrama);
 
