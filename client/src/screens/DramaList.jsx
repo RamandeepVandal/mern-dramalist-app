@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
+// axios
+import Axios from "axios";
+// components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Dramas } from "../components/Dramas";
 // bootstrap spinner
 import Spinner from "react-bootstrap/Spinner";
+// get user id -> user id hook
+import { getUserID } from "../hooks/getUserID";
 
 export const DramaList = () => {
+  // user id
+  const userID = getUserID();
+
   // dramas
-  const [dramas, setDramas] = useState([
-    {
-      name: "One Spring Night",
-      description:
-        "When Lee Jeong-in and Yu Ji-ho meet, something unexpected happens. Or it just may be that spring is in the air -- and anything is possible.",
-      imgURL: "/kFEIbuGVbIDQ5GPOWdw6heZVXKC.jpg",
-    },
-  ]);
+  const [dramas, setDramas] = useState([]);
   // loading
   const [loading, setLoading] = useState(false);
 
   // get the data
   useEffect(() => {
     setLoading(true);
-    getDramas();
+    getDramas(userID);
 
     setTimeout(() => {
       setLoading(false);
@@ -29,10 +30,12 @@ export const DramaList = () => {
   }, []);
 
   // get data
-  const getDramas = async () => {
-    const res = await fetch("http://localhost:5000/dramas");
-    const data = await res.json();
-    setDramas(data);
+  const getDramas = async (id) => {
+    await Axios.post("http://localhost:5000/dramas", {
+      id,
+    }).then((res) => {
+      setDramas(res.data);
+    });
   };
 
   // filter drama on delete
