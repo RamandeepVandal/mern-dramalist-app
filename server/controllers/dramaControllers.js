@@ -1,18 +1,24 @@
 const mongoose = require('mongoose');
 const Dramas = require('../models/dramaSchema');
 
-// GET -> all of the dramas in the db
+// POST -> all of the dramas in the db
 const getDrama = async(req, res) => {
-    const data = await Dramas.find({});
+    const userID = await req.body.id;
 
-    // if no data exists in the db
-    if(!data) {
+    // check if that user exists
+    if (!userID) {
         res.status(400);
-        throw new Error('No dramas found.');
+        throw new Error('No such user exists.');
     }
 
-    // if data exists 
-    res.status(200).json(data);
+    // check which dramas correspond to the user
+    const dramas = await Dramas.find({ savedDramaUser: userID });
+
+    if(!dramas) {
+        res.status(200).json({ status: 'error', error: 'No dramas exist.' });
+    }
+
+    res.status(200).json(dramas);
 }
 
 // POST -> add new drama into the dramalist db

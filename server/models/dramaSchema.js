@@ -32,7 +32,7 @@ const dramaSchema = new mongoose.Schema({
     savedDramaUser: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        require: true
+        required: true
     }
 })
 

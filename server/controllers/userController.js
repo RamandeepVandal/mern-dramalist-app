@@ -32,11 +32,11 @@ const userLogin = async(req, res) => {
     if (!user) {
         res.status(400).json({error: 'Account does not exist.'});
     }
-
+    
     // check if password matches
     const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
 
-    if(!isPasswordValid) {
+    if(isPasswordValid) {
         const token = jwt.sign({
             id: user._id
         }, process.env.JWT_SECRET);
