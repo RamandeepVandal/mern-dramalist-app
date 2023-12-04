@@ -14,10 +14,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    savedDramas: {
+    savedDramas: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Dramas'
-    }
+    }]
 })
 
 module.exports = mongoose.model('User', userSchema);
