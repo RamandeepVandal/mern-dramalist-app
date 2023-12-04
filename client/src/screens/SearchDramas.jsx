@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 // react router
 import { useNavigate } from "react-router-dom";
+// get user id hook
+import { getUserID } from "../hooks/getUserID";
 // components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -9,16 +11,21 @@ import { Footer } from "../components/Footer";
 import Spinner from "react-bootstrap/Spinner";
 
 export const SearchDramas = () => {
+  // userID
+  const userID = getUserID();
+
   // user query
   const [name, setName] = useState("");
 
   // dramas
   const [drama, setDrama] = useState([{}]);
+  const [savedDramaUser, setSavedDramaUser] = useState(userID);
+
   // loading
   const [loading, setLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
   // page url
-  const [url, setUrl] = useState('/search');
+  const [url, setUrl] = useState("/search");
 
   useEffect(() => {
     setLoading(true);
@@ -55,37 +62,42 @@ export const SearchDramas = () => {
 
     setSearchLoading(true);
     getDrama(name);
-
     setTimeout(() => {
       setSearchLoading(false);
     }, 500);
   };
 
   // Add drama to the db
-  const addDrama = async (name, description, imgUrl, backdropURL, originCountry, firstAirDate, voteAverage) => {
-    try {
-      await Axios.post(
-        "http://localhost:5000/dramas",
-        {
-          name: name,
-          description: description,
-          imgURL: imgUrl,
-          backdropURL: backdropURL, 
-          originCountry: originCountry,
-          firstAirDate: firstAirDate,
-          voteAverage: voteAverage
-        },
-        { crossDomain: true }
-      );
-      alert("Success!");
-    } catch (error) {
-      console.log(error);
-    }
+  const addDrama = async (
+    name,
+    description,
+    imgURL,
+    backdropURL,
+    originCountry,
+    firstAirDate,
+    voteAverage,
+    savedDramaUser
+  ) => {
+    await Axios.post("http://localhost:5000/dramas/add", {
+      name,
+      description,
+      imgURL,
+      backdropURL,
+      originCountry,
+      firstAirDate,
+      voteAverage,
+      savedDramaUser,
+    }).then((res) => {
+      if (res.data.status === "ok") {
+        alert("Success!");
+      }
+    });
   };
 
   // navigation
   const navigation = useNavigate();
-  const toDetails = (data, url) => navigation('/details', { state: { data, url } });
+  const toDetails = (data, url) =>
+    navigation("/details", { state: { data, url } });
 
   return (
     <section>
@@ -167,7 +179,9 @@ export const SearchDramas = () => {
                                   loading="lazy"
                                   onClick={() => toDetails(item, url)}
                                 />
-                                <p className="content-h-md mt-2">{item?.name}</p>
+                                <p className="content-h-md mt-2">
+                                  {item?.name}
+                                </p>
 
                                 <div className="card-footer mt-auto">
                                   <button
@@ -180,7 +194,8 @@ export const SearchDramas = () => {
                                         item?.backdrop_path,
                                         item?.origin_country[0],
                                         item?.first_air_date,
-                                        item?.vote_average
+                                        item?.vote_average,
+                                        savedDramaUser
                                       )
                                     }
                                   >

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 // react router
 import { useNavigate } from "react-router-dom";
+// get user id hook
+import { getUserID } from "../hooks/getUserID";
 // components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -14,8 +16,13 @@ export const FindDramas = () => {
   const [page, setPage] = useState(1);
   const [lang, setLang] = useState("en");
 
+  // userID
+  const userID = getUserID();
+
   // dramas
   const [drama, setDrama] = useState([{}]);
+  const [savedDramaUser, setSavedDramaUser] = useState(userID);
+
   // loading
   const [loading, setLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
@@ -65,26 +72,31 @@ export const FindDramas = () => {
     }, 500);
   };
 
-  // Add drama to the db
-  const addDrama = async (name, description, imgUrl, backdropURL, originCountry, firstAirDate, voteAverage) => {
-    try {
-      await Axios.post(
-        "http://localhost:5000/dramas",
-        {
-          name: name,
-          description: description,
-          imgURL: imgUrl,
-          backdropURL: backdropURL, 
-          originCountry: originCountry,
-          firstAirDate: firstAirDate,
-          voteAverage: voteAverage
-        },
-        { crossDomain: true }
-      );
-      alert("Success!");
-    } catch (error) {
-      console.log(error);
-    }
+   // Add drama to the db
+   const addDrama = async (
+    name,
+    description,
+    imgURL,
+    backdropURL,
+    originCountry,
+    firstAirDate,
+    voteAverage,
+    savedDramaUser
+  ) => {
+    await Axios.post("http://localhost:5000/dramas/add", {
+      name,
+      description,
+      imgURL,
+      backdropURL,
+      originCountry,
+      firstAirDate,
+      voteAverage,
+      savedDramaUser,
+    }).then((res) => {
+      if (res.data.status === "ok") {
+        alert("Success!");
+      }
+    });
   };
 
   // navigation
@@ -225,7 +237,8 @@ export const FindDramas = () => {
                                         item?.backdrop_path,
                                         item?.origin_country[0],
                                         item?.first_air_date,
-                                        item?.vote_average
+                                        item?.vote_average,
+                                        savedDramaUser
                                       )
                                     }
                                   >

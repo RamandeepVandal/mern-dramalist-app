@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 // react router
 import { useLocation } from "react-router-dom";
+// get user id hook
+import { getUserID } from "../hooks/getUserID";
 // components
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -9,11 +11,15 @@ import { Footer } from "../components/Footer";
 import Spinner from "react-bootstrap/Spinner";
 
 export const DramaDetails = () => {
+  // userID
+  const userID = getUserID();
+
   // location
   const location = useLocation();
 
   // drama
   const [drama, setDrama] = useState(location?.state?.data);
+  const [savedDramaUser, setSavedDramaUser] = useState(userID);
   // loading
   const [loading, setLoading] = useState(false);
 
@@ -29,30 +35,27 @@ export const DramaDetails = () => {
   const addDrama = async (
     name,
     description,
-    imgUrl,
+    imgURL,
     backdropURL,
     originCountry,
     firstAirDate,
-    voteAverage
+    voteAverage,
+    savedDramaUser
   ) => {
-    try {
-      await Axios.post(
-        "http://localhost:5000/dramas",
-        {
-          name: name,
-          description: description,
-          imgURL: imgUrl,
-          backdropURL: backdropURL,
-          originCountry: originCountry,
-          firstAirDate: firstAirDate,
-          voteAverage: voteAverage,
-        },
-        { crossDomain: true }
-      );
-      alert("Success!");
-    } catch (error) {
-      console.log(error);
-    }
+    await Axios.post("http://localhost:5000/dramas/add", {
+      name,
+      description,
+      imgURL,
+      backdropURL,
+      originCountry,
+      firstAirDate,
+      voteAverage,
+      savedDramaUser,
+    }).then((res) => {
+      if (res.data.status === "ok") {
+        alert("Success!");
+      }
+    });
   };
 
   return (
@@ -129,7 +132,8 @@ export const DramaDetails = () => {
                       drama?.backdrop_path,
                       drama?.origin_country[0],
                       drama?.first_air_date,
-                      drama?.vote_average
+                      drama?.vote_average,
+                      savedDramaUser
                     )
                   }
                 >
