@@ -9,11 +9,12 @@ import { Dramas } from "../components/Dramas";
 import Spinner from "react-bootstrap/Spinner";
 // get user id -> user id hook
 import { getUserID } from "../hooks/getUserID";
+// navigate
+import { useNavigate } from "react-router-dom";
 
 export const DramaList = () => {
   // user id
   const userID = getUserID();
-
   // dramas
   const [dramas, setDramas] = useState([]);
   // loading
@@ -43,6 +44,11 @@ export const DramaList = () => {
     setDramas((dramas) => dramas.filter((drama) => drama._id !== id));
   };
 
+   // navigation
+   const navigate = useNavigate();
+   // to the register page
+   const toFind = () => navigate("/find");
+
   return (
     <div>
       {loading ? (
@@ -62,7 +68,19 @@ export const DramaList = () => {
       ) : (
         <div>
           <Header />
-          <Dramas dramas={dramas} filterDrama={filterDrama} />
+          {dramas.length < 2 ? (
+            <section className="no-drama-show d-flex flex-column justify-content-center align-items-center">
+              <h1>No dramas to show.</h1>
+              <h2
+                className="text-center mt-3 find-dramas"
+                onClick={toFind}
+              >
+                Find dramas here.
+              </h2>
+            </section>
+          ) : (
+            <Dramas dramas={dramas} filterDrama={filterDrama} />
+          )}
           {/* FOOTER SECTION */}
           <Footer />
         </div>
