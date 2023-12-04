@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 // axios
 import Axios from "axios";
 // react cookie
@@ -7,8 +7,21 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 // component
 import { Header } from "../components/Header";
+// bootstrap spinner
+import Spinner from "react-bootstrap/Spinner";
 
 export const LoginPage = () => {
+  // loading
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+
   // user data
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,52 +59,68 @@ export const LoginPage = () => {
   };
 
   return (
-    <section>
+    <>
       <Header />
+      {loading ? (
+        <div>
+          <div className="App">
+            <Spinner
+              animation="border"
+              role="status"
+              variant="success"
+              size="lg"
+            >
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        </div>
+      ) : (
+        <section>
+          <section className="d-flex justify-content-center align-items-center flex-column m-5 p-5">
+            <h1 className="">Login</h1>
 
-      <section className="d-flex justify-content-center align-items-center flex-column m-5 p-5">
-        <h1 className="">Login</h1>
-
-        <section className="container">
-          <section className="row">
-            <section className="col-12 col-sm-12 col-md-12 col-lg-12">
-              <form className="card form-card p-5 mt-2" onSubmit={onSubmit}>
-                <article className="form-floating  mb-3">
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Please enter your email"
-                    className="form-control form-control-search mb-1 shadow-none"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <label htmlFor="email">Email</label>
-                </article>
-                <article className="form-floating  mb-3">
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="Please enter your password"
-                    className="form-control form-control-search mb-1 shadow-none"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <label htmlFor="password">Password</label>
-                </article>
-                <button type="submit" className="btn btn-explore mt-1">
-                  Login
-                </button>
-                <p
-                  className="text-center mt-3 sign-in-up-link"
-                  onClick={toRegister}
-                >
-                  Don't have an account? Register here.
-                </p>
-              </form>
+            <section className="container">
+              <section className="row">
+                <section className="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <form className="card form-card p-5 mt-2" onSubmit={onSubmit}>
+                    <article className="form-floating  mb-3">
+                      <input
+                        type="email"
+                        id="email"
+                        placeholder="Please enter your email"
+                        className="form-control form-control-search mb-1 shadow-none"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <label htmlFor="email">Email</label>
+                    </article>
+                    <article className="form-floating  mb-3">
+                      <input
+                        type="password"
+                        id="password"
+                        placeholder="Please enter your password"
+                        className="form-control form-control-search mb-1 shadow-none"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <label htmlFor="password">Password</label>
+                    </article>
+                    <button type="submit" className="btn btn-explore mt-1">
+                      Login
+                    </button>
+                    <p
+                      className="text-center mt-3 sign-in-up-link"
+                      onClick={toRegister}
+                    >
+                      Don't have an account? Register here.
+                    </p>
+                  </form>
+                </section>
+              </section>
             </section>
           </section>
         </section>
-      </section>
-    </section>
+      )}
+    </>
   );
 };
