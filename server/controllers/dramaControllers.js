@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Dramas = require('../models/dramaSchema');
+const User = require('../models/userSchema');
 
 // POST -> all of the dramas in the db
 const getDrama = async(req, res) => {
@@ -30,14 +31,14 @@ const addDrama = async(req, res) => {
         throw new Error('Please fill all data fields.');
     }
 
-    const newDrama = new Dramas(data);
+    const newDrama = await Dramas.create(data);
     await newDrama.save();
 
     // if POST req was a success
-    res.status(200).send('New drama added.');
+    res.status(200).json({ status: 'ok', newDrama });
 }
 
-// PUT -> edit dramas in the dramalist db
+// PUT -> delete dramas in the dramalist db
 const deleteDrama = async(req, res) => {
     const id = await req.params.id;
 
