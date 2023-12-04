@@ -9,13 +9,36 @@ import heroVideo from "../assets/hero-video.mp4";
 import watch from "../assets/watch.png";
 import search from "../assets/search.png";
 import save from "../assets/save.png";
+// react cookies
+import { useCookies } from "react-cookie";
 
 export const LandingPage = () => {
+
+  const [cookies, setCookies] = useCookies("access_token");
+
   // Navigate to the dramalist page
   const navigate = useNavigate();
-  const handleClickDramaList = () => navigate("/drama");
-  const handleClickDramaFind = () => navigate("/find");
-  const handleClickDramaSearch = () => navigate("/search");
+  const handleClickDramaList = () => {
+    if(!cookies.access_token) {
+     navigate("/login"); 
+    } else {
+      navigate("/drama")
+    }
+  };
+  const handleClickDramaFind = () => {
+    if(!cookies.access_token) {
+      navigate("/login"); 
+     } else {
+       navigate("/find")
+     }
+  };
+  const handleClickDramaSearch = () => {
+    if(!cookies.access_token) {
+      navigate("/login"); 
+     } else {
+       navigate("/search")
+     }
+  };
 
   return (
     <div>
