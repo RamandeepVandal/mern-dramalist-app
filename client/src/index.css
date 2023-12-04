@@ -196,6 +196,10 @@ video {
   min-height: 73.5vh;
 }
 
+.no-drama-show {
+  height: 100vh;
+}
+
 .drama-container {
   border: none;
   background-color: var(--secondary-accent);
@@ -225,6 +229,19 @@ video {
 
 .icon-img-delete:hover {
   fill: red;
+}
+
+.find-dramas {
+  color: var(--accent);
+  cursor: pointer;
+  border-bottom: 1px solid var(--accent);
+
+  transition: all ease 0.5s;
+}
+
+.find-dramas:hover {
+  color: var(--secondary);
+  border-bottom: 1px solid var(--secondary);
 }
 
 /* ADD,EDIT DRAMA PAGE */
